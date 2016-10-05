@@ -203,6 +203,38 @@ echo $foo
 # find 命令
 find / -name test -print
 find / -mount -name test -print # 不搜索挂载的其他系统目录
+# {} 是 exec 和 ok 的一个特殊参数，将被替换成当前文件的完整路径
+# ok 和 exec 参数遇到 "\" 时停止
+find . -newer while2 -type f -exec ls -l {} \
+
+find .  \( -name "_*" -or -newer while2 \) -type f -print
+
+# grep 命令（General Regular Expression Parser）正则表达式解析器
+grep in words.txt
+grep -c in words.txt words2.txt
+grep -c -v in words.txt words2.txt
+# 查找以字母 e 结尾的行
+grep e$ words2.txt
+# 查找以字母 a 结尾的单词
+grep a[[:blank:]] words2.txt
+# 查找以 Th 开头的由3个字母组成的单词
+grep Th.[[:space:]] words2.txt
+# 查找只有10个字符长的全部由小写字母组成的单词
+grep -E [a-z]\{10\} words2.txt
+
+
+# 命令的执行
+#!/bin/sh
+echo The current directory is $PWD
+echo The current users are $(who)
+
+whoisthere = $(who)
+echo $whoisthere
+
+exit 0
+
+
+
 
 
 
