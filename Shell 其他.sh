@@ -1,10 +1,10 @@
 # 算数扩展
 #!/bin/sh
-x = 0
+x=0
 while [ "$x" -ne 10 ]
 do
 	echo $x
-	x = $(($x + 1))
+	x=$(($x + 1))
 done
 
 exit 0
@@ -21,14 +21,14 @@ done
 unset foo
 echo ${foo:-bar}
 
-foo = fud
+foo=fud
 echo ${foo:-bar}
 
-foo = /usr/bin/x11/startx
+foo=/usr/bin/x11/startx
 echo ${foo#*/}
 echo ${foo##*/}
 
-bar = /usr/local/etc/local/networks
+bar=/usr/local/etc/local/networks
 echo ${bar%local*}
 echo ${bar%%local*}
 
@@ -82,3 +82,19 @@ set +o xtrace
 set +o noexec
 set +o verbose
 set +o nounset
+
+
+# dialog 窗口：dialog / gdialog
+#!/bin/sh
+dialog --title "Check me" --checklist "Pick Numbers" 15 25 3 1 "one" "off" 2 "two" "on" 3 "three" "off"
+
+dialog --title "Confirm" --yesno "Are you willing to take part?" 9 18
+# "$?" 获得上一个命令的返回值
+if [ $? != 0 ]
+then
+	dialog --infobox "Thank you anyway" 5 20
+	sleep 2
+	dialog --clear
+	exit 0
+fi
+

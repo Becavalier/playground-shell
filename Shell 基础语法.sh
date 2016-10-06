@@ -61,10 +61,10 @@ fi
 echo "Is it morning? Please answer yes or no:"
 read timeofday
 
-if [ "$timeofday" = "yes" ]
+if [ "$timeofday"="yes" ]
 then
 	echo "Good morning"
-elif [ "$timeofday" = "no" ]
+elif [ "$timeofday"="no" ]
 then
 	echo "Good afternoon"
 else
@@ -216,10 +216,10 @@ exit 0
 # 函数局部变量
 #!/bin/sh
 
-sample_text = "global variable"
+sample_text="global variable"
 
 foo() {
-	local sample_text = "local variable"
+	local sample_text="local variable"
 	echo "Function foo is executing"
 	echo $sample_text
 }

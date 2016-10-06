@@ -64,16 +64,16 @@ exit 0
 # classic_set.sh
 #!/bin/sh
 
-version = "classic"
-PATH = "/usr/local/old_bin:/usr/bin:/bin:."
-PS1 = "classic> "
+version="classic"
+PATH="/usr/local/old_bin:/usr/bin:/bin:."
+PS1="classic> "
 
 # latest_set.sh
 #!/bin/sh
  
-version = "latest"
-PATH = "/usr/local/new_bin:/usr/bin:/bin:."
-PS1 = "latest> "
+version="latest"
+PATH="/usr/local/new_bin:/usr/bin:/bin:."
+PS1="latest> "
 
 # 切换到 classic 上下文环境
 #$ . ./classic_set
@@ -88,12 +88,12 @@ echo -e "string to output\c"
 
 
 # eval 命令
-foo = 10
-x = foo
-y = '$'$x
+foo=10
+x=foo
+y='$'$x
 echo $y # $foo
 
-eval y = '$'$x
+eval y='$'$x
 echo $y # 10
 
 
@@ -115,16 +115,16 @@ echo "$foo"
 echo "$bar"
 
 # export1.sh
-foo = "Then first meta-syntactic variable"
+foo="Then first meta-syntactic variable"
 # 这里变量 bar 被导出可以在其他 shell 环境中直接使用
-export bar = "The second meta-syntactic variable"
+export bar="The second meta-syntactic variable"
 
 #$ ./export1
 
 
 # expr 命令
-x = `expr $x + 1`
-x = $(expr $x + 1)
+x=`expr $x + 1`
+x=$(expr $x + 1)
 
 
 # printf 命令
@@ -193,7 +193,7 @@ exit 0
 # unset 命令：把变量从环境中清除
 #!/bin/sh
 
-foo = "Hello World"
+foo="Hello World"
 echo $foo
 
 unset foo
@@ -228,7 +228,7 @@ grep -E [a-z]\{10\} words2.txt
 echo The current directory is $PWD
 echo The current users are $(who)
 
-whoisthere = $(who)
+whoisthere=$(who)
 echo $whoisthere
 
 exit 0

@@ -1,2 +1,2 @@
 # Shell-Note
-Programming note of Linux Shell.
+Programming library of Linux Shell.
