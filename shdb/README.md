@@ -5,8 +5,11 @@ A local nosql db for shell, mainly for data persistence.
 
 
 ### Usage
+
 #### Install:
+
 >* sudo bash ./shdb.sh install
+
 #### How to use:
 
 >* shdb status
